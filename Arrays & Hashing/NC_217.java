@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*; //import HashSet
 
 public class NC_217 {
     public static void main (String[] args) {
@@ -19,10 +19,15 @@ public class NC_217 {
     //     return false;
     // }
 
+    /* O(n) */
     public boolean containsDuplicate(int[] nums) {
-        
-
-        
+        HashMap <Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < nums.length; i++) {
+            if(map.containsKey(nums[i])) {
+                return true;    
+            }
+            map.put(nums[i], 1); //here, the key is the number at index i
+        }
         return false;
     }
 
