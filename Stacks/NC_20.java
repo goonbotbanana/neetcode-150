@@ -1,9 +1,10 @@
+package Stacks;
 import java.util.Stack;
 
 class NC_20 {
     public static void main(String[] args) {
         NC_20 nc = new NC_20();
-        String s = "()";
+        String s = "({[]})";
         System.out.println(nc.isValid(s));
     }
 
@@ -11,11 +12,11 @@ class NC_20 {
         Stack<Character> leftSymbols = new Stack<>();
 
         for (char c: s.toCharArray()) {
+            System.out.println(leftSymbols);
 
             //left symbol encountered, push to stack
             if(c == '(' || c == '{' || c == '[') {
                 leftSymbols.push(c);
-                System.out.println(leftSymbols);
             } else if (c == ')' && (!(leftSymbols.isEmpty())) && ((leftSymbols.peek() == '('))) {
                 leftSymbols.pop();
             } else if (c == '}' && (!(leftSymbols.isEmpty())) && ((leftSymbols.peek() == '{'))) {
